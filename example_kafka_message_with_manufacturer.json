@@ -1,0 +1,64 @@
+{
+  "timestamp": "2025-11-03T13:45:22.123456Z",
+  "source_ip": "10.42.3.24",
+  "source_port": 57241,
+  "trap_oid": "1.3.6.1.4.1.3902.1082.500.10.3.1.80",
+  "manufacturer": "ZTE Corporation",
+  "enterprise_id": "3902",
+  "is_enterprise_trap": true,
+  "is_standard_trap": false,
+  "is_registration": true,
+  "is_nms_hello": false,
+  "trap_info": {
+    "name": "ontRegistration",
+    "description": "ONT registration notification",
+    "module": "ZTE-AN-GPON-MIB"
+  },
+  "registration_data": {
+    "event_type": "ont_registration",
+    "ont_model": "MH80",
+    "ont_serial": "MHAR08DF4BD9",
+    "vendor_id": "MHAR",
+    "device_serial": "08DF4BD9",
+    "ont_firmware": "XPONV4.2.2M16",
+    "registration_time": "2025-11-03 11:07:17",
+    "ont_index": "285278466",
+    "slot": "1",
+    "pon": "1",
+    "ont_id": "2"
+  },
+  "trap_data": {
+    "1.3.6.1.6.3.1.1.4.1.0": {
+      "oid": "1.3.6.1.6.3.1.1.4.1.0",
+      "value": "1.3.6.1.4.1.3902.1082.500.10.3.1.80",
+      "type": "ObjectIdentity",
+      "manufacturer": "SNMPv2",
+      "is_enterprise": false,
+      "is_standard": false,
+      "name": "snmpTrapOID",
+      "is_trap_oid": true
+    },
+    "1.3.6.1.2.1.2.2.1.7.285278467": {
+      "oid": "1.3.6.1.2.1.2.2.1.7.285278467",
+      "value": "1",
+      "type": "Integer",
+      "manufacturer": "IETF Standard MIB",
+      "is_enterprise": false,
+      "is_standard": true,
+      "name": "ifAdminStatus",
+      "syntax": "INTEGER",
+      "description": "The desired state of the interface...",
+      "table_index": "285278467"
+    },
+    "1.3.6.1.4.1.3902.1082.500.10.2.1.2.285278466": {
+      "oid": "1.3.6.1.4.1.3902.1082.500.10.2.1.2.285278466",
+      "value": "0x4d48415208df4bd9",
+      "type": "OctetString",
+      "manufacturer": "ZTE Corporation",
+      "is_enterprise": true,
+      "is_standard": false,
+      "name": "zxAnGponOntAuthSerialNumber",
+      "description": "ONT serial number"
+    }
+  }
+}

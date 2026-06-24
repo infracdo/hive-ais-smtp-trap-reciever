@@ -1,0 +1,4 @@
+# Alternative: Use pysnmp-lextudio (maintained fork for Python 3.8+)
+pysnmp-lextudio==5.0.34
+kafka-python==2.0.2
+python-dotenv==1.0.0

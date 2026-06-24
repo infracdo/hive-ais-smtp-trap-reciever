@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  snmp-to-kafka:
+    build: .
+    container_name: snmp-trap-receiver
+    restart: unless-stopped
+    network_mode: host
+    env_file:
+      - .env
+    environment:
+      - SNMP_LISTEN_HOST=0.0.0.0
+      - SNMP_LISTEN_PORT=162
+      - SNMP_COMMUNITY=wg1Community
+      - KAFKA_BOOTSTRAP_SERVERS=10.42.4.19:9092
+      - KAFKA_TOPIC=olt_snmp_traps
+      - KAFKA_REGISTRATION_TOPIC=olt_ont_registration
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./logs:/app/logs
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"

@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  snmp-trap-receiver:
+    image: marcandres888/snmp-trap-kafka:latest
+    container_name: snmp-trap-receiver
+    hostname: snmp-receiver
+    restart: unless-stopped
+    
+    ports:
+      - "162:162/udp"
+    
+    networks:
+      - portainer_default
+    
+    environment:
+      # SNMP Configuration
+      - SNMP_LISTEN_HOST=0.0.0.0
+      - SNMP_LISTEN_PORT=162
+      - SNMP_COMMUNITY=wg1Community
+      
+      # Kafka Configuration
+      - KAFKA_BOOTSTRAP_SERVERS=10.42.4.19:9092
+      - KAFKA_TOPIC=olt_snmp_traps
+      - KAFKA_REGISTRATION_TOPIC=olt_ont_registration
+      
+      # Logging
+      - LOG_LEVEL=INFO
+    
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    labels:
+      - "com.portainer.description=SNMP Trap Receiver for ZTE C320 OLT"
+      - "com.portainer.category=networking"
+
+networks:
+  portainer_default:
+    external: true
